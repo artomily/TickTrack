@@ -11,16 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tickets', function (Blueprint $table) {
+        Schema::create('ticket_replies', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('ticket_id')->constrained();
             $table->foreignId('user_id')->constrained();
-            $table->string('code')->unique();
-            $table->text('title');
-            $table->longText('description');
-            $table->enum('status', ['open', 'onprogress', 'resolved', 'rejected'])->default('open');
-            $table->enum('priority', ['low', 'medium', 'high']);
+            $table->longText('content');
             $table->timestamps();
-            $table->timestamp('completed_at')->nullable();
         });
     }
 
@@ -29,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tickets');
+        Schema::dropIfExists('ticket_replies');
     }
 };
