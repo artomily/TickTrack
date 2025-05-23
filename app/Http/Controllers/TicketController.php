@@ -6,9 +6,7 @@ use App\Http\Requests\TicketStoreRequest;
 use App\Http\Resources\TicketResource;
 use App\Models\Ticket;
 use Exception;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use PhpParser\Node\Stmt\TryCatch;
 
 class TicketController extends Controller
 {
