@@ -159,7 +159,6 @@ class TicketController extends Controller
                 'message' => 'Ticket reply created successfully',
                 'data' => new TicketReplyResource($ticketReply)
             ], 200);
-            
         } catch (Exception $e) {
             DB::rollBack();
 
